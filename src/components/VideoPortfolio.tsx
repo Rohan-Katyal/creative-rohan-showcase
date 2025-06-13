@@ -57,26 +57,22 @@ const VideoPortfolio = () => {
           {videos.map((video, index) => (
             <div
               key={video.id}
-              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 group cursor-pointer"
-              onClick={() => openVideo(video.id)}
+              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 group"
             >
               <div className="relative aspect-[9/16] bg-gray-700">
-                <img
-                  src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                  alt={video.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-all duration-300">
-                  <div className="bg-red-600 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
-                    <Play className="text-white w-8 h-8 fill-white" />
-                  </div>
-                </div>
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                  title={video.title}
+                  className="w-full h-full rounded-t-xl"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
                 <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ExternalLink className="text-white w-4 h-4" />
+                  <ExternalLink 
+                    className="text-white w-4 h-4 cursor-pointer" 
+                    onClick={() => openVideo(video.id)}
+                  />
                 </div>
               </div>
               <div className="p-4">
@@ -86,9 +82,17 @@ const VideoPortfolio = () => {
                 <p className="text-gray-400 text-sm leading-relaxed">
                   {video.description}
                 </p>
-                <div className="mt-3 flex items-center text-cyan-400 text-sm font-medium">
-                  <Play className="w-4 h-4 mr-1" />
-                  Click to watch
+                <div className="mt-3 flex items-center justify-between">
+                  <div className="flex items-center text-cyan-400 text-sm font-medium">
+                    <Play className="w-4 h-4 mr-1" />
+                    Watch above
+                  </div>
+                  <button
+                    onClick={() => openVideo(video.id)}
+                    className="text-gray-400 hover:text-cyan-400 text-xs underline transition-colors"
+                  >
+                    Open in YouTube
+                  </button>
                 </div>
               </div>
             </div>
