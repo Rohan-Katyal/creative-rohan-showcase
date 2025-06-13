@@ -6,19 +6,19 @@ const About = () => {
     {
       icon: <Play className="w-8 h-8" />,
       title: "Video Editing",
-      description: "Expert in Filmora for creating engaging video content",
+      description: "4 months of freelance experience with Filmora, learning DaVinci Resolve",
       color: "from-red-500 to-pink-500"
     },
     {
       icon: <Palette className="w-8 h-8" />,
       title: "Graphic Design",
-      description: "Proficient in Canva for stunning visual designs",
+      description: "2 months of experience creating designs with Canva",
       color: "from-purple-500 to-blue-500"
     },
     {
       icon: <Code className="w-8 h-8" />,
-      title: "MERN Stack",
-      description: "Full-stack development with MongoDB, Express, React, Node.js",
+      title: "Full Stack Development",
+      description: "4 months MERN Stack experience, learning Three.js for web development",
       color: "from-green-500 to-cyan-500"
     }
   ];
@@ -39,18 +39,21 @@ const About = () => {
               Creative Professional & Developer
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm Rohan Katyal, a passionate creative professional who bridges the gap between 
-              visual storytelling and technology. With expertise in video editing, graphic design, 
-              and full-stack development, I help brands create compelling digital experiences.
+              I'm Rohan Katyal, a passionate beginner in the creative and tech space. Over the past 
+              4 months, I've been working as a freelance video editor using Filmora, constantly 
+              honing my skills and exploring new tools like DaVinci Resolve.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              My mission is simple: to help brands grow through powerful visuals that connect 
-              with audiences and drive meaningful engagement. Whether it's crafting the perfect 
-              video narrative or designing eye-catching graphics, I bring ideas to life with 
-              precision and creativity.
+              In parallel, I've been developing my full-stack development skills with the MERN stack 
+              for 4 months and recently started learning Three.js for immersive web experiences. 
+              I'm also expanding into graphic design with Canva over the past 2 months.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              My mission is to grow as a creative professional while helping brands tell their 
+              stories through compelling visuals and innovative web experiences.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
-              {["Filmora", "Canva", "React", "Node.js", "MongoDB", "Express"].map((skill) => (
+              {["Filmora", "DaVinci Resolve", "Canva", "Three.js", "React", "Node.js", "MongoDB", "Express"].map((skill) => (
                 <span
                   key={skill}
                   className="bg-gray-700 text-cyan-400 px-4 py-2 rounded-full text-sm font-medium"

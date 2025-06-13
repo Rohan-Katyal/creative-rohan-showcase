@@ -22,11 +22,11 @@ const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in animation-delay-500">
-          Creative Video Editor & Graphic Designer
+          Freelance Video Editor & Aspiring Full-Stack Developer
         </p>
         
         <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in animation-delay-1000">
-          Transforming ideas into compelling visual stories that captivate audiences and drive engagement
+          4 months of freelance video editing with Filmora • Learning DaVinci Resolve & Three.js • Building with MERN Stack
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-1500">
