@@ -1,5 +1,5 @@
 
-import { Play } from "lucide-react";
+import { Play, ExternalLink } from "lucide-react";
 
 const VideoPortfolio = () => {
   const videos = [
@@ -35,6 +35,11 @@ const VideoPortfolio = () => {
     }
   ];
 
+  const openVideo = (videoId: string) => {
+    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="videos" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -52,17 +57,26 @@ const VideoPortfolio = () => {
           {videos.map((video, index) => (
             <div
               key={video.id}
-              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 group"
+              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 group cursor-pointer"
+              onClick={() => openVideo(video.id)}
             >
               <div className="relative aspect-[9/16] bg-gray-700">
-                <iframe
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  title={video.title}
-                  className="w-full h-full rounded-t-xl"
-                  allowFullScreen
-                ></iframe>
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Play className="text-white w-12 h-12 opacity-80" />
+                <img
+                  src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                  alt={video.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-all duration-300">
+                  <div className="bg-red-600 rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+                    <Play className="text-white w-8 h-8 fill-white" />
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ExternalLink className="text-white w-4 h-4" />
                 </div>
               </div>
               <div className="p-4">
@@ -72,6 +86,10 @@ const VideoPortfolio = () => {
                 <p className="text-gray-400 text-sm leading-relaxed">
                   {video.description}
                 </p>
+                <div className="mt-3 flex items-center text-cyan-400 text-sm font-medium">
+                  <Play className="w-4 h-4 mr-1" />
+                  Click to watch
+                </div>
               </div>
             </div>
           ))}

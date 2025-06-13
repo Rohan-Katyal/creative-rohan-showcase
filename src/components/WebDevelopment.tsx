@@ -1,5 +1,5 @@
 
-import { ExternalLink, Code } from "lucide-react";
+import { ExternalLink, Code, Monitor, Smartphone } from "lucide-react";
 
 const WebDevelopment = () => {
   const projects = [
@@ -21,6 +21,10 @@ const WebDevelopment = () => {
     }
   ];
 
+  const openProject = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="webdev" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
       <div className="max-w-7xl mx-auto">
@@ -38,7 +42,8 @@ const WebDevelopment = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-700 hover:border-cyan-400/50"
+              className="group bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-700 hover:border-cyan-400/50 cursor-pointer"
+              onClick={() => openProject(project.liveUrl)}
             >
               <div className="relative aspect-video overflow-hidden">
                 <img
@@ -49,17 +54,25 @@ const WebDevelopment = () => {
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center bg-cyan-400 text-gray-900 px-4 py-2 rounded-full text-sm font-medium hover:bg-cyan-300 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Visit Site
-                    </a>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-cyan-400 text-gray-900 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                      <ExternalLink className="w-6 h-6" />
+                    </div>
                   </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white font-medium">Visit Live Site</span>
+                      <div className="flex space-x-2">
+                        <Monitor className="w-5 h-5 text-cyan-400" />
+                        <Smartphone className="w-5 h-5 text-cyan-400" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Corner indicator */}
+                <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ExternalLink className="text-cyan-400 w-4 h-4" />
                 </div>
               </div>
               
@@ -87,15 +100,18 @@ const WebDevelopment = () => {
                   ))}
                 </div>
                 
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
-                >
-                  <ExternalLink className="w-4 h-4 mr-1" />
-                  View Project
-                </a>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-cyan-400 text-sm font-medium">
+                    <ExternalLink className="w-4 h-4 mr-1" />
+                    Click to view project
+                  </div>
+                  <div className="flex items-center space-x-2 text-gray-400 text-xs">
+                    <Monitor className="w-4 h-4" />
+                    <span>•</span>
+                    <Smartphone className="w-4 h-4" />
+                    <span>Mobile friendly</span>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
