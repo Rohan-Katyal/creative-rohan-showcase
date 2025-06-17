@@ -19,19 +19,28 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'sans': ['Poppins', 'sans-serif'],
+			},
 			colors: {
+				// Brand colors
+				mustard: '#F4B942',
+				charcoal: '#1A1A1A',
+				'mustard-light': '#FFF8E1',
+				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#F4B942',
+					foreground: '#1A1A1A'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#1A1A1A',
+					foreground: '#F4B942'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',

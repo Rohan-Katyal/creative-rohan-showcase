@@ -26,14 +26,14 @@ const WebDevelopment = () => {
   };
 
   return (
-    <section id="webdev" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
+    <section id="webdev" className="py-20 px-4 sm:px-6 lg:px-8 bg-mustard-light">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Web <span className="text-cyan-400">Development</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">
+            Web <span className="text-mustard">Development</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mb-8"></div>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-mustard to-mustard/70 mx-auto mb-8 rounded-full"></div>
+          <p className="text-charcoal/70 text-lg max-w-3xl mx-auto">
             My web development projects showcasing MERN stack skills and Three.js exploration over 4 months of learning
           </p>
         </div>
@@ -42,7 +42,7 @@ const WebDevelopment = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 border border-gray-700 hover:border-cyan-400/50 cursor-pointer"
+              className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:transform hover:scale-105 border border-mustard/20 hover:border-mustard/50 cursor-pointer"
               onClick={() => openProject(project.liveUrl)}
             >
               <div className="relative aspect-video overflow-hidden">
@@ -53,9 +53,9 @@ const WebDevelopment = () => {
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-cyan-400 text-gray-900 p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
+                    <div className="bg-mustard text-charcoal p-4 rounded-full group-hover:scale-110 transition-transform duration-300">
                       <ExternalLink className="w-6 h-6" />
                     </div>
                   </div>
@@ -63,28 +63,28 @@ const WebDevelopment = () => {
                     <div className="flex items-center justify-between">
                       <span className="text-white font-medium">Visit Live Site</span>
                       <div className="flex space-x-2">
-                        <Monitor className="w-5 h-5 text-cyan-400" />
-                        <Smartphone className="w-5 h-5 text-cyan-400" />
+                        <Monitor className="w-5 h-5 text-mustard" />
+                        <Smartphone className="w-5 h-5 text-mustard" />
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Corner indicator */}
-                <div className="absolute top-4 right-4 bg-black/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ExternalLink className="text-cyan-400 w-4 h-4" />
+                <div className="absolute top-4 right-4 bg-charcoal/70 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ExternalLink className="text-mustard w-4 h-4" />
                 </div>
               </div>
               
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center space-x-2 mb-3">
-                  <Code className="w-5 h-5 text-cyan-400" />
-                  <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                  <Code className="w-5 h-5 text-mustard" />
+                  <h3 className="text-xl font-semibold text-charcoal group-hover:text-mustard transition-colors">
                     {project.title}
                   </h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                <p className="text-charcoal/70 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
@@ -93,7 +93,7 @@ const WebDevelopment = () => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-700 text-cyan-400 px-3 py-1 rounded-full text-xs font-medium"
+                      className="bg-mustard-light border border-mustard text-charcoal px-3 py-1 rounded-full text-xs font-medium"
                     >
                       {tech}
                     </span>
@@ -101,11 +101,11 @@ const WebDevelopment = () => {
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-cyan-400 text-sm font-medium">
+                  <div className="flex items-center text-mustard text-sm font-medium">
                     <ExternalLink className="w-4 h-4 mr-1" />
                     Click to view project
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400 text-xs">
+                  <div className="flex items-center space-x-2 text-charcoal/60 text-xs">
                     <Monitor className="w-4 h-4" />
                     <span>•</span>
                     <Smartphone className="w-4 h-4" />

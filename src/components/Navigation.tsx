@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -9,14 +10,17 @@ const Navigation = () => {
     { name: "About", href: "#about" },
     { name: "Videos", href: "#videos" },
     { name: "Web Dev", href: "#webdev" },
+    { name: "Admin", href: "/admin" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
+    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-mustard/20 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-cyan-400">
-            Rohan Katyal
+          <div className="flex items-center space-x-3">
+            <div className="text-2xl font-bold text-charcoal">
+              Rohan Katyal
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -25,7 +29,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium"
+                className="text-charcoal hover:text-mustard transition-colors duration-300 font-medium"
               >
                 {item.name}
               </a>
@@ -36,7 +40,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-cyan-400 transition-colors"
+              className="text-charcoal hover:text-mustard transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -45,12 +49,12 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="md:hidden py-4 border-t border-mustard/20">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
+                className="block py-2 text-charcoal hover:text-mustard transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
