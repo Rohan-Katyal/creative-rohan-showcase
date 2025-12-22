@@ -4,13 +4,13 @@ import { Play, ExternalLink } from "lucide-react";
 const VideoPortfolio = () => {
   const videos = [
     {
-      id: "hhpWg-IOkco",
+      id: "-ayhDIdxYvg",
       title: "Creative Short #1",
       description: "Dynamic short-form video content showcasing creative editing techniques and storytelling.",
       platform: "youtube"
     },
     {
-      id: "4KholOiElJc",
+      id: "c0jed_vHyFM",
       title: "Creative Short #2",
       description: "Engaging video content with smooth transitions and compelling visual narrative.",
       platform: "youtube"
