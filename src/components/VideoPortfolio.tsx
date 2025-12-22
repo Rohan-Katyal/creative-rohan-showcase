@@ -16,9 +16,9 @@ const VideoPortfolio = () => {
       platform: "youtube"
     },
     {
-      id: "AjYfHJpFpCs",
+      id: "Le_Fod4kGQ4",
       title: "Creative Short #3",
-      description: "Professional video editing demonstrating advanced Filmora techniques and creativity.",
+      description: "Professional video content demonstrating creative storytelling and advanced editing skills.",
       platform: "youtube"
     },
     {
@@ -34,9 +34,9 @@ const VideoPortfolio = () => {
       platform: "youtube"
     },
     {
-      id: "Le_Fod4kGQ4",
+      id: "AjYfHJpFpCs",
       title: "Creative Short #6",
-      description: "Professional video content demonstrating creative storytelling and advanced editing skills.",
+      description: "Professional video editing demonstrating advanced Filmora techniques and creativity.",
       platform: "youtube"
     }
   ];
