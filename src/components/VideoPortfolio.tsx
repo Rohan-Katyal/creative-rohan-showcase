@@ -71,7 +71,7 @@ const VideoPortfolio = () => {
               {videos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-2 md:pl-4 basis-[70%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-mustard/20 h-full">
-                    <div className="relative aspect-[9/16] bg-gray-100 max-h-[280px] sm:max-h-[320px] md:max-h-[400px]">
+                    <div className="relative aspect-[9/16] bg-gray-100">
                       <iframe
                         src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
                         title={video.title}
