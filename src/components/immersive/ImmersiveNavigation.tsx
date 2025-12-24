@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 
 interface ImmersiveNavigationProps {
   currentSection: number;
+  sectionProgress: number;
   onNavigate: (index: number) => void;
   sectionNames: string[];
 }
 
-const ImmersiveNavigation = ({ currentSection, onNavigate, sectionNames }: ImmersiveNavigationProps) => {
+const ImmersiveNavigation = ({ 
+  currentSection, 
+  sectionProgress,
+  onNavigate, 
+  sectionNames 
+}: ImmersiveNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = sectionNames.map((name, index) => ({
@@ -15,8 +21,34 @@ const ImmersiveNavigation = ({ currentSection, onNavigate, sectionNames }: Immer
     index,
   }));
 
+  // Navbar moves up with hero section, then becomes fixed after hero exits
+  const navStyles = useMemo(() => {
+    if (currentSection === 0) {
+      // During hero section, navbar scrolls up as progress increases
+      const translateY = sectionProgress > 0.5 
+        ? -((sectionProgress - 0.5) * 2) * 100 
+        : 0;
+      const opacity = sectionProgress > 0.7 ? 1 - ((sectionProgress - 0.7) / 0.3) : 1;
+      
+      return {
+        transform: `translateY(${translateY}%)`,
+        opacity: Math.max(0, opacity),
+        position: 'absolute' as const,
+      };
+    }
+    // After hero, navbar is hidden (other sections have their own context)
+    return {
+      transform: 'translateY(-100%)',
+      opacity: 0,
+      position: 'absolute' as const,
+    };
+  }, [currentSection, sectionProgress]);
+
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-mustard/20 shadow-sm">
+    <nav 
+      className="top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-mustard/20 shadow-sm transition-opacity duration-300"
+      style={navStyles}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <button 

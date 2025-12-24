@@ -31,6 +31,7 @@ const Index = () => {
       <div className="fixed inset-0 overflow-hidden bg-white font-poppins">
         <ImmersiveNavigation 
           currentSection={currentSection}
+          sectionProgress={sectionProgress}
           onNavigate={scrollToSection}
           sectionNames={SECTION_NAMES}
         />
