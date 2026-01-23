@@ -1,31 +1,39 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 interface ScrollSection {
   id: string;
   start: number;
   end: number;
-  weight: number;
+  weight: number; // How much scroll "resistance" this section has
 }
-
-// Build sections with weighted resistance (first section requires 2x scrolling)
-const buildSections = (totalSections: number): ScrollSection[] => {
-  const weights = Array.from({ length: totalSections }, (_, i) => i === 0 ? 2 : 1);
-  const totalWeight = weights.reduce((a, b) => a + b, 0);
-  
-  let accumulated = 0;
-  return weights.map((weight, i) => {
-    const start = accumulated / totalWeight;
-    accumulated += weight;
-    const end = accumulated / totalWeight;
-    return { id: `section-${i}`, start, end, weight };
-  });
-};
 
 export const useScrollProgress = (totalSections: number) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [sectionProgress, setSectionProgress] = useState(0);
-  const [sections] = useState(() => buildSections(totalSections));
+
+  // First section has 2x weight (requires more scrolling to pass)
+  const sectionWeights = useMemo(() => {
+    const weights = Array.from({ length: totalSections }, (_, i) => i === 0 ? 2 : 1);
+    return weights;
+  }, [totalSections]);
+
+  const totalWeight = useMemo(() => sectionWeights.reduce((a, b) => a + b, 0), [sectionWeights]);
+
+  const sections: ScrollSection[] = useMemo(() => {
+    let accumulated = 0;
+    return sectionWeights.map((weight, i) => {
+      const start = accumulated / totalWeight;
+      accumulated += weight;
+      const end = accumulated / totalWeight;
+      return {
+        id: `section-${i}`,
+        start,
+        end,
+        weight,
+      };
+    });
+  }, [sectionWeights, totalWeight]);
 
   const handleScroll = useCallback(() => {
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -57,7 +65,7 @@ export const useScrollProgress = (totalSections: number) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
