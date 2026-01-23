@@ -12,11 +12,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-mustard/20 shadow-sm">
+    <nav className="fixed top-0 w-full bg-white/95 dark:bg-charcoal/95 backdrop-blur-sm z-50 border-b border-mustard/20 shadow-sm transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <div className="text-2xl font-bold text-charcoal">
+            <div className="text-2xl font-bold text-charcoal dark:text-white">
               Rohan Katyal
             </div>
           </div>
@@ -27,7 +27,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-charcoal hover:text-mustard transition-colors duration-300 font-medium"
+                className="text-charcoal dark:text-white hover:text-mustard transition-colors duration-300 font-medium"
               >
                 {item.name}
               </a>
@@ -38,7 +38,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-charcoal hover:text-mustard transition-colors"
+              className="text-charcoal dark:text-white hover:text-mustard transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -52,7 +52,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-charcoal hover:text-mustard transition-colors duration-300"
+                className="block py-2 text-charcoal dark:text-white hover:text-mustard transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

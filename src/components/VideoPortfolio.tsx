@@ -47,14 +47,14 @@ const VideoPortfolio = () => {
   };
 
   return (
-    <section id="videos" className="min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white flex items-center">
+    <section id="videos" className="min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-charcoal/90 flex items-center transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-charcoal">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-charcoal dark:text-white">
             Video <span className="text-mustard">Portfolio</span>
           </h2>
           <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-mustard to-mustard/70 mx-auto mb-6 md:mb-8 rounded-full"></div>
-          <p className="text-charcoal/70 text-base md:text-lg max-w-3xl mx-auto px-4">
+          <p className="text-charcoal/70 dark:text-white/70 text-base md:text-lg max-w-3xl mx-auto px-4">
             Explore my video editing journey - 4 months of freelance work using Filmora, showcasing creative storytelling and professional growth
           </p>
         </div>
@@ -70,8 +70,8 @@ const VideoPortfolio = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {videos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-2 md:pl-4 basis-[70%] sm:basis-1/2 lg:basis-1/3">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-mustard/20 h-full">
-                    <div className="relative aspect-[9/16] bg-gray-100">
+                  <div className="bg-white dark:bg-charcoal/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-mustard/20 dark:border-mustard/30 h-full">
+                    <div className="relative aspect-[9/16] bg-gray-100 dark:bg-charcoal">
                       <iframe
                         src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
                         title={video.title}
@@ -88,10 +88,10 @@ const VideoPortfolio = () => {
                       </div>
                     </div>
                     <div className="p-3 md:p-4">
-                      <h3 className="text-base md:text-lg font-semibold text-charcoal mb-1 md:mb-2 group-hover:text-mustard transition-colors">
+                      <h3 className="text-base md:text-lg font-semibold text-charcoal dark:text-white mb-1 md:mb-2 group-hover:text-mustard transition-colors">
                         {video.title}
                       </h3>
-                      <p className="text-charcoal/60 text-xs md:text-sm leading-relaxed line-clamp-2">
+                      <p className="text-charcoal/60 dark:text-white/60 text-xs md:text-sm leading-relaxed line-clamp-2">
                         {video.description}
                       </p>
                       <div className="mt-2 md:mt-3 flex items-center justify-between">
@@ -101,7 +101,7 @@ const VideoPortfolio = () => {
                         </div>
                         <button
                           onClick={() => openVideo(video.id)}
-                          className="text-charcoal/60 hover:text-mustard text-[10px] md:text-xs underline transition-colors"
+                          className="text-charcoal/60 dark:text-white/60 hover:text-mustard text-[10px] md:text-xs underline transition-colors"
                         >
                           Open in YouTube
                         </button>
@@ -111,15 +111,15 @@ const VideoPortfolio = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-4 lg:-left-6 bg-mustard/10 border-mustard/30 hover:bg-mustard hover:text-white" />
-            <CarouselNext className="hidden md:flex -right-4 lg:-right-6 bg-mustard/10 border-mustard/30 hover:bg-mustard hover:text-white" />
+            <CarouselPrevious className="hidden md:flex -left-4 lg:-left-6 bg-mustard/10 border-mustard/30 hover:bg-mustard hover:text-white dark:text-white" />
+            <CarouselNext className="hidden md:flex -right-4 lg:-right-6 bg-mustard/10 border-mustard/30 hover:bg-mustard hover:text-white dark:text-white" />
           </Carousel>
           
           {/* Mobile swipe indicator */}
           <div className="flex md:hidden justify-center mt-4 gap-1">
-            <ChevronLeft className="w-4 h-4 text-charcoal/40" />
-            <span className="text-xs text-charcoal/50">Swipe to explore</span>
-            <ChevronRight className="w-4 h-4 text-charcoal/40" />
+            <ChevronLeft className="w-4 h-4 text-charcoal/40 dark:text-white/40" />
+            <span className="text-xs text-charcoal/50 dark:text-white/50">Swipe to explore</span>
+            <ChevronRight className="w-4 h-4 text-charcoal/40 dark:text-white/40" />
           </div>
         </div>
       </div>

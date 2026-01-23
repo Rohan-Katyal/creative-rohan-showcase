@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 interface UseImmersiveScrollOptions {
   totalSections: number;
-  scrollResistance?: number; // Higher = more resistance (slower scroll)
-  transitionDuration?: number; // Duration of section transition in ms
+  scrollResistance?: number;
+  transitionDuration?: number;
 }
 
 interface UseImmersiveScrollReturn {
@@ -24,13 +24,27 @@ export const useImmersiveScroll = ({
   
   const accumulatedScroll = useRef(0);
   const lastScrollTime = useRef(Date.now());
-  const transitionTimeout = useRef<NodeJS.Timeout | null>(null);
+  const transitionTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isTransitioningRef = useRef(false);
+  const currentSectionRef = useRef(0);
+
+  // Keep refs in sync
+  useEffect(() => {
+    isTransitioningRef.current = isTransitioning;
+  }, [isTransitioning]);
+
+  useEffect(() => {
+    currentSectionRef.current = currentSection;
+  }, [currentSection]);
 
   const goToSection = useCallback((index: number) => {
-    if (index < 0 || index >= totalSections || isTransitioning) return;
+    if (index < 0 || index >= totalSections || isTransitioningRef.current) return;
+    if (index === currentSectionRef.current) return;
     
+    isTransitioningRef.current = true;
     setIsTransitioning(true);
     setCurrentSection(index);
+    currentSectionRef.current = index;
     accumulatedScroll.current = 0;
     setSectionProgress(0);
     
@@ -40,14 +54,15 @@ export const useImmersiveScroll = ({
     
     transitionTimeout.current = setTimeout(() => {
       setIsTransitioning(false);
+      isTransitioningRef.current = false;
     }, transitionDuration);
-  }, [totalSections, isTransitioning, transitionDuration]);
+  }, [totalSections, transitionDuration]);
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
-      if (isTransitioning) return;
+      if (isTransitioningRef.current) return;
       
       const now = Date.now();
       const timeDelta = now - lastScrollTime.current;
@@ -55,45 +70,47 @@ export const useImmersiveScroll = ({
       
       // Decay accumulated scroll over time for smoother feel
       if (timeDelta > 150) {
-        accumulatedScroll.current *= 0.5;
+        accumulatedScroll.current *= 0.3;
       }
       
       // Add new scroll delta with resistance
       const scrollAmount = e.deltaY / scrollResistance;
       accumulatedScroll.current += scrollAmount;
       
-      // Clamp progress between 0 and 1
-      const newProgress = Math.max(0, Math.min(1, sectionProgress + scrollAmount * 0.5));
+      // Update progress for visual feedback
+      const newProgress = Math.max(0, Math.min(1, Math.abs(accumulatedScroll.current) / 1.5));
       setSectionProgress(newProgress);
       
       // Threshold for section change
-      const threshold = 1.5;
+      const threshold = 1.2;
       
       if (accumulatedScroll.current > threshold) {
-        // Scrolling down - go to next section
-        if (currentSection < totalSections - 1) {
-          goToSection(currentSection + 1);
+        // Scrolling down
+        if (currentSectionRef.current < totalSections - 1) {
+          goToSection(currentSectionRef.current + 1);
         }
+        accumulatedScroll.current = 0;
       } else if (accumulatedScroll.current < -threshold) {
-        // Scrolling up - go to previous section
-        if (currentSection > 0) {
-          goToSection(currentSection - 1);
+        // Scrolling up
+        if (currentSectionRef.current > 0) {
+          goToSection(currentSectionRef.current - 1);
         }
+        accumulatedScroll.current = 0;
       }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isTransitioning) return;
+      if (isTransitioningRef.current) return;
       
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
         e.preventDefault();
-        if (currentSection < totalSections - 1) {
-          goToSection(currentSection + 1);
+        if (currentSectionRef.current < totalSections - 1) {
+          goToSection(currentSectionRef.current + 1);
         }
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
         e.preventDefault();
-        if (currentSection > 0) {
-          goToSection(currentSection - 1);
+        if (currentSectionRef.current > 0) {
+          goToSection(currentSectionRef.current - 1);
         }
       }
     };
@@ -108,23 +125,23 @@ export const useImmersiveScroll = ({
     };
     
     const handleTouchMove = (e: TouchEvent) => {
-      if (isTransitioning) return;
+      if (isTransitioningRef.current) return;
       
       const touchY = e.touches[0].clientY;
-      const delta = (touchStartY - touchY) / scrollResistance;
+      const delta = (touchStartY - touchY) / (scrollResistance * 0.5);
       touchAccumulated += delta;
       touchStartY = touchY;
       
-      const threshold = 2;
+      const threshold = 1.5;
       
       if (touchAccumulated > threshold) {
-        if (currentSection < totalSections - 1) {
-          goToSection(currentSection + 1);
+        if (currentSectionRef.current < totalSections - 1) {
+          goToSection(currentSectionRef.current + 1);
         }
         touchAccumulated = 0;
       } else if (touchAccumulated < -threshold) {
-        if (currentSection > 0) {
-          goToSection(currentSection - 1);
+        if (currentSectionRef.current > 0) {
+          goToSection(currentSectionRef.current - 1);
         }
         touchAccumulated = 0;
       }
@@ -144,7 +161,7 @@ export const useImmersiveScroll = ({
         clearTimeout(transitionTimeout.current);
       }
     };
-  }, [currentSection, totalSections, isTransitioning, scrollResistance, sectionProgress, goToSection]);
+  }, [totalSections, scrollResistance, goToSection]);
 
   return {
     currentSection,

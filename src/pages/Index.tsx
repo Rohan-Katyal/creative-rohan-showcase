@@ -5,6 +5,7 @@ import WebDevelopment from "../components/WebDevelopment";
 import Navigation from "../components/Navigation";
 import ImmersiveSection from "../components/ImmersiveSection";
 import ScrollIndicator from "../components/ScrollIndicator";
+import ThemeToggle from "../components/ThemeToggle";
 import { useImmersiveScroll } from "../hooks/useImmersiveScroll";
 
 const SECTIONS = [
@@ -22,7 +23,7 @@ const Index = () => {
   });
 
   return (
-    <div className="fixed inset-0 w-screen h-screen overflow-hidden bg-white text-charcoal font-poppins">
+    <div className="fixed inset-0 w-screen h-screen overflow-hidden bg-white dark:bg-charcoal text-charcoal dark:text-white font-poppins transition-colors duration-500">
       {/* Navigation - animates with first section */}
       <div
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-700"
@@ -45,7 +46,7 @@ const Index = () => {
       >
         <button
           onClick={() => goToSection(0)}
-          className="text-xl font-bold text-charcoal hover:text-mustard transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-mustard/20"
+          className="text-xl font-bold text-charcoal dark:text-white hover:text-mustard transition-colors bg-white/90 dark:bg-charcoal/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-mustard/20 dark:border-mustard/30"
         >
           RK
         </button>
@@ -77,6 +78,11 @@ const Index = () => {
         onNavigate={goToSection}
       />
 
+      {/* Theme Toggle */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
       {/* Scroll hint for first section */}
       <div
         className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 transition-all duration-500"
@@ -86,8 +92,8 @@ const Index = () => {
           pointerEvents: "none",
         }}
       >
-        <span className="text-charcoal/60 text-sm font-medium">Scroll to explore</span>
-        <div className="w-6 h-10 border-2 border-charcoal/30 rounded-full flex items-start justify-center p-2">
+        <span className="text-charcoal/60 dark:text-white/60 text-sm font-medium">Scroll to explore</span>
+        <div className="w-6 h-10 border-2 border-charcoal/30 dark:border-white/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-2.5 bg-mustard rounded-full animate-bounce" />
         </div>
       </div>
