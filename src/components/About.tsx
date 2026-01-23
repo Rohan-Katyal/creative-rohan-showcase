@@ -35,10 +35,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-mustard-light flex items-center">
+    <section id="about" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-mustard-light dark:bg-charcoal flex items-center transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal dark:text-white">
             Creative Builder & <span className="text-mustard">Visual Technologist</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-mustard to-mustard/70 mx-auto mb-8 rounded-full"></div>
@@ -46,23 +46,23 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <p className="text-charcoal/85 text-lg leading-relaxed">
-              I'm <span className="font-semibold text-charcoal">Rohan Katyal</span>—a creative builder working at the intersection of creativity, technology, and AI. I turn ideas into real projects by combining visual storytelling, web development, and modern AI tools.
+            <p className="text-charcoal/85 dark:text-white/85 text-lg leading-relaxed">
+              I'm <span className="font-semibold text-charcoal dark:text-white">Rohan Katyal</span>—a creative builder working at the intersection of creativity, technology, and AI. I turn ideas into real projects by combining visual storytelling, web development, and modern AI tools.
             </p>
-            <p className="text-charcoal/85 text-lg leading-relaxed">
+            <p className="text-charcoal/85 dark:text-white/85 text-lg leading-relaxed">
               My toolkit includes video editing with Filmora (currently leveling up to DaVinci Resolve), full-stack development using the MERN stack, and AI-powered image and video generation to speed up creative workflows. I also create clean visuals with Canva and experiment with Three.js for interactive web experiences.
             </p>
-            <p className="text-charcoal/85 text-lg leading-relaxed">
+            <p className="text-charcoal/85 dark:text-white/85 text-lg leading-relaxed">
               What drives me is solving problems through making—not just learning, but building, iterating, and shipping. I manage projects from concept to execution: structuring workflows, staying organized, and delivering outcomes that work.
             </p>
-            <p className="text-charcoal/85 text-lg leading-relaxed">
+            <p className="text-charcoal/85 dark:text-white/85 text-lg leading-relaxed">
               I'm still growing, and that's intentional. Every project teaches me something new. If you're looking for someone who can handle real creative and technical work while staying curious and adaptable, let's connect.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
               {["Filmora", "DaVinci Resolve", "AI Generation", "Canva", "Three.js", "React", "Node.js", "MongoDB"].map((skill) => (
                 <span
                   key={skill}
-                  className="bg-white border border-mustard text-charcoal px-4 py-2 rounded-full text-sm font-medium shadow-sm"
+                  className="bg-white dark:bg-charcoal/50 border border-mustard text-charcoal dark:text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm"
                 >
                   {skill}
                 </span>
@@ -74,17 +74,17 @@ const About = () => {
             {skills.map((skill) => (
               <div
                 key={skill.title}
-                className="bg-white p-5 rounded-xl border border-mustard/20 hover:border-mustard/50 transition-all duration-300 hover:transform hover:scale-[1.02] shadow-sm hover:shadow-md"
+                className="bg-white dark:bg-charcoal/50 p-5 rounded-xl border border-mustard/20 dark:border-mustard/30 hover:border-mustard/50 transition-all duration-300 hover:transform hover:scale-[1.02] shadow-sm hover:shadow-md"
               >
                 <div className="flex items-start space-x-4">
                   <div className={`p-3 rounded-lg bg-gradient-to-r ${skill.color} text-white flex-shrink-0`}>
                     {skill.icon}
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-charcoal mb-1">
+                    <h4 className="text-lg font-semibold text-charcoal dark:text-white mb-1">
                       {skill.title}
                     </h4>
-                    <p className="text-charcoal/70 text-sm">
+                    <p className="text-charcoal/70 dark:text-white/70 text-sm">
                       {skill.description}
                     </p>
                   </div>
