@@ -26,7 +26,7 @@ const WebDevelopment = () => {
   };
 
   return (
-    <section id="webdev" className="py-20 px-4 sm:px-6 lg:px-8 bg-mustard-light">
+    <section id="webdev" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-mustard-light flex items-center">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-charcoal">

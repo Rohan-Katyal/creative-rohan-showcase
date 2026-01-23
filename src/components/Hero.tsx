@@ -1,5 +1,4 @@
-
-import { ArrowDown } from "lucide-react";
+// Hero section for immersive scroll experience
 
 const Hero = () => {
   return (
@@ -44,9 +43,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-mustard" size={32} />
-        </div>
+        {/* Scroll indicator is now handled by parent */}
       </div>
     </section>
   );
