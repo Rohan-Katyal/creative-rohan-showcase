@@ -1,4 +1,4 @@
-import { Play, Palette, Code, Sparkles, Workflow } from "lucide-react";
+import { Play, Palette, Code, Sparkles, Workflow, Instagram } from "lucide-react";
 
 const About = () => {
   const skills = [
@@ -67,6 +67,28 @@ const About = () => {
                   {skill}
                 </span>
               ))}
+            </div>
+
+            {/* Connect Section with Logo & Instagram */}
+            <div className="pt-8 flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-mustard to-mustard/80 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="text-charcoal font-bold text-xl">RK</span>
+                </div>
+                <div>
+                  <p className="text-charcoal dark:text-white font-semibold">Let's Connect</p>
+                  <p className="text-charcoal/60 dark:text-white/60 text-sm">Follow my journey</p>
+                </div>
+              </div>
+              <a
+                href="https://www.instagram.com/rohan__katyal?igsh=eXRsZm9pemNoYm5m"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 text-white px-5 py-3 rounded-full font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <Instagram className="w-5 h-5" />
+                <span>@rohan__katyal</span>
+              </a>
             </div>
           </div>
 
