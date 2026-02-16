@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ const Navigation = () => {
             <div className="text-2xl font-bold text-charcoal dark:text-white">
               Rohan Katyal
             </div>
+            <ThemeToggle />
           </div>
 
           {/* Desktop Navigation */}
