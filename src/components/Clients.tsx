@@ -31,15 +31,18 @@ const clients = [
   },
   {
     name: "Shikshami Classes",
-    status: "Worked With",
-    statusActive: false,
+    status: "Currently Working With",
+    statusActive: true,
     category: "Educational Coaching Platform",
     description:
       "Academic coaching platform focused on structured concept clarity and exam preparation.",
     contributions: [
+      "Instagram Reels creation",
+      "YouTube Shorts editing",
       "YouTube thumbnail design",
       "Academic visual presentation structuring",
       "Thumbnail consistency for brand identity",
+      "Short-form concept explainer videos",
     ],
     socials: [
       {
