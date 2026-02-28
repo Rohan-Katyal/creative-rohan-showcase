@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import VideoPortfolio from "../components/VideoPortfolio";
 import WebDevelopment from "../components/WebDevelopment";
+import Clients from "../components/Clients";
 import Navigation from "../components/Navigation";
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
       <About />
       <VideoPortfolio />
       <WebDevelopment />
+      <Clients />
     </div>
   );
 };
