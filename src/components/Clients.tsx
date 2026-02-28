@@ -24,7 +24,7 @@ const clients = [
       },
       {
         icon: Instagram,
-        url: "https://instagram.com/mysstara",
+        url: "https://www.instagram.com/mysstara/",
         label: "Instagram",
       },
     ],
