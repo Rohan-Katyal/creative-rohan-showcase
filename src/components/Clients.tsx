@@ -3,8 +3,8 @@ import { Youtube, Instagram } from "lucide-react";
 const clients = [
   {
     name: "MYSSTARA",
-    status: "Currently Working With",
-    statusActive: true,
+    status: "Worked With (Past Client)",
+    statusActive: false,
     category: "Professional Tarot Card Reader & Crystal Healer",
     description:
       "Led by RashmiiShree, practicing tarot since 2022 with 1000+ readings delivered and recognized at Jyotish Mahakumbh 2024.",
