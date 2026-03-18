@@ -53,9 +53,11 @@ const VideoPortfolio = () => {
     }
   ];
 
-  const openVideo = (videoId: string) => {
-    const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
+  const openVideo = (videoId: string, platform: string) => {
+    const url = platform === "instagram"
+      ? `https://www.instagram.com/reel/${videoId}/`
+      : `https://www.youtube.com/watch?v=${videoId}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
