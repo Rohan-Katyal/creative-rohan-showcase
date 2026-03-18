@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import logo from "@/assets/Social-craft-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
