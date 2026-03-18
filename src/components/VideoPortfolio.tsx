@@ -38,6 +38,30 @@ const VideoPortfolio = () => {
       title: "Creative Short #5",
       description: "Latest video editing work showcasing growth and skill development in Filmora.",
       platform: "youtube"
+    },
+    {
+      id: "Ca-xssb314o",
+      title: "YouTube Short Edit 01",
+      description: "Video Editing / YouTube Shorts — dynamic short-form content with creative editing.",
+      platform: "youtube"
+    },
+    {
+      id: "bJgiemwRy7I",
+      title: "YouTube Short Edit 02",
+      description: "Video Editing / YouTube Shorts — engaging visual storytelling in short format.",
+      platform: "youtube"
+    },
+    {
+      id: "3b6-DkAbLt0",
+      title: "YouTube Short Edit 03",
+      description: "Video Editing / YouTube Shorts — polished editing techniques for vertical content.",
+      platform: "youtube"
+    },
+    {
+      id: "hz-KVJJzMzg",
+      title: "YouTube Short Edit 04",
+      description: "Video Editing / YouTube Shorts — creative short-form video with professional editing.",
+      platform: "youtube"
     }
   ];
 
