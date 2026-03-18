@@ -11,55 +11,55 @@ const VideoPortfolio = () => {
   const videos = [
     {
       id: "-ayhDIdxYvg",
-      title: "Creative Short #1",
+      title: "YouTube Short Edit 01",
       description: "Dynamic short-form video content showcasing creative editing techniques and storytelling.",
       platform: "youtube"
     },
     {
       id: "c0jed_vHyFM",
-      title: "Creative Short #2",
+      title: "YouTube Short Edit 02",
       description: "Engaging video content with smooth transitions and compelling visual narrative.",
       platform: "youtube"
     },
     {
       id: "Le_Fod4kGQ4",
-      title: "Creative Short #3",
+      title: "YouTube Short Edit 03",
       description: "Professional video content demonstrating creative storytelling and advanced editing skills.",
       platform: "youtube"
     },
     {
       id: "BfXUfORsyvM",
-      title: "Creative Short #4",
+      title: "YouTube Short Edit 04",
       description: "Captivating short-form content with dynamic editing and visual storytelling.",
       platform: "youtube"
     },
     {
       id: "l7PKgYKEN3w",
-      title: "Creative Short #5",
+      title: "YouTube Short Edit 05",
       description: "Latest video editing work showcasing growth and skill development in Filmora.",
       platform: "youtube"
     },
     {
       id: "Ca-xssb314o",
-      title: "YouTube Short Edit 01",
+      title: "YouTube Short Edit 06",
       description: "Video Editing / YouTube Shorts — dynamic short-form content with creative editing.",
       platform: "youtube"
     },
     {
       id: "bJgiemwRy7I",
-      title: "YouTube Short Edit 02",
+      title: "YouTube Short Edit 07",
       description: "Video Editing / YouTube Shorts — engaging visual storytelling in short format.",
       platform: "youtube"
     },
     {
       id: "3b6-DkAbLt0",
-      title: "YouTube Short Edit 03",
+      title: "YouTube Short Edit 08",
       description: "Video Editing / YouTube Shorts — polished editing techniques for vertical content.",
       platform: "youtube"
     },
     {
       id: "hz-KVJJzMzg",
-      title: "YouTube Short Edit 04",
+      title: "YouTube Short Edit 09",
       description: "Video Editing / YouTube Shorts — creative short-form video with professional editing.",
       platform: "youtube"
     }

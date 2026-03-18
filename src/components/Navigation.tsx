@@ -19,6 +19,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
+            <img src={logo} alt="Social Craft Logo" className="w-9 h-9 rounded-full object-cover" />
             <div className="text-2xl font-bold text-charcoal dark:text-white">
               Rohan Katyal
             </div>
