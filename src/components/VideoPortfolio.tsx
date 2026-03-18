@@ -86,14 +86,24 @@ const VideoPortfolio = () => {
                 <CarouselItem key={video.id} className="pl-2 md:pl-4 basis-[70%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-white dark:bg-charcoal/50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-mustard/20 dark:border-mustard/30 h-full">
                     <div className="relative aspect-[9/16] bg-gray-100 dark:bg-charcoal">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
-                        title={video.title}
-                        className="w-full h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
+                      {video.platform === "instagram" ? (
+                        <iframe
+                          src={`https://www.instagram.com/reel/${video.id}/embed/`}
+                          title={video.title}
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                          title={video.title}
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      )}
                       <div className="absolute top-3 right-3 bg-charcoal/70 rounded-full p-1.5 md:p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <ExternalLink 
                           className="text-mustard w-3 h-3 md:w-4 md:h-4 cursor-pointer" 
