@@ -38,6 +38,18 @@ const VideoPortfolio = () => {
       title: "Creative Short #5",
       description: "Latest video editing work showcasing growth and skill development in Filmora.",
       platform: "youtube"
+    },
+    {
+      id: "DVRzbSuE2F3",
+      title: "Instagram Reel Edit 01",
+      description: "Video Editing / Social Media Content — creative reel showcasing dynamic editing and engaging storytelling.",
+      platform: "instagram"
+    },
+    {
+      id: "DUXb4v-k-bY",
+      title: "Instagram Reel Edit 02",
+      description: "Video Editing / Social Media Content — professional reel with smooth transitions and compelling visuals.",
+      platform: "instagram"
     }
   ];
 
