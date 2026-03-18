@@ -107,7 +107,7 @@ const VideoPortfolio = () => {
                       <div className="absolute top-3 right-3 bg-charcoal/70 rounded-full p-1.5 md:p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <ExternalLink 
                           className="text-mustard w-3 h-3 md:w-4 md:h-4 cursor-pointer" 
-                          onClick={() => openVideo(video.id)}
+                          onClick={() => openVideo(video.id, video.platform)}
                         />
                       </div>
                     </div>
