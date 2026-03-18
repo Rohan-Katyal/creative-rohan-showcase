@@ -124,10 +124,10 @@ const VideoPortfolio = () => {
                           Watch above
                         </div>
                         <button
-                          onClick={() => openVideo(video.id)}
+                          onClick={() => openVideo(video.id, video.platform)}
                           className="text-charcoal/60 dark:text-white/60 hover:text-mustard text-[10px] md:text-xs underline transition-colors"
                         >
-                          Open in YouTube
+                          Open in {video.platform === "instagram" ? "Instagram" : "YouTube"}
                         </button>
                       </div>
                     </div>
